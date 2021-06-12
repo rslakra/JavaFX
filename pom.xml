@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.rslakra.javafx</groupId>
+    <artifactId>javafx</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>The ${project.artifactId} Project</name>
+    <url>https://github.com/rslakra/JavaFX</url>
+
+    <!-- Properties -->
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.release>1.8</maven.compiler.release>
+        <log4j.version>1.2.17</log4j.version>
+        <junit.version>4.13.1</junit.version>
+        <dLogger.version>1.0-SNAPSHOT</dLogger.version>
+        <dCore.version>1.0-SNAPSHOT</dCore.version>
+    </properties>
+
+    <!-- Dependencies -->
+    <dependencies>
+        <!-- Log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- dLogger -->
+        <dependency>
+            <groupId>com.devamatre</groupId>
+            <artifactId>dLogger</artifactId>
+            <version>${dLogger.version}</version>
+        </dependency>
+
+        <!-- core-helper -->
+<!--        <dependency>-->
+<!--            <groupId>com.rslakra.java</groupId>-->
+<!--            <artifactId>core</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+        <!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Build -->
+    <build>
+        <!-- To define the plugin version in your parent POM -->
+        <pluginManagement>
+            <plugins>
+                <!--                <plugin>-->
+                <!--                    <groupId>org.apache.maven.plugins</groupId>-->
+                <!--                    <artifactId>maven-compiler-plugin</artifactId>-->
+                <!--                    <configuration>-->
+                <!--                        <source>${maven.compiler.source}</source>-->
+                <!--                        <target>${maven.compiler.target}</target>-->
+                <!--                    </configuration>-->
+                <!--                </plugin>-->
+
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+        <!-- finalName -->
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
+        <!-- To use the plugin goals in your POM or parent POM -->
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>rslakra-repository-site</id>-->
+    <!--            <url>https://github.com/rslakra/Releases.git</url>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
+
+</project>
